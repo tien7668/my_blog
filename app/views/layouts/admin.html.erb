@@ -25,21 +25,19 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
-<body class="">
-<div class="app">
-  <%= render 'layouts/admin/navigation' %>
-  <!--Begin App Content -->
-  <div class="app-content">
-    <div class="app-main">
-      admin layout
+<body class="nav-md">
+  <div class="container body">
+    <% flash.each do |key, value| %>
+        <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= render "layouts/admin/side_nav" %>
+    <%= render "layouts/admin/top_nav" %>
+    <div class="right_col" role="main">
       <%= yield %>
     </div>
-    <!-- End App Footer -->
-  </div>
-
-</div>
-
+    <%= render "layouts/admin/footer" %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= yield :more_js %>
 </body>
