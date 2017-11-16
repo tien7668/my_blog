@@ -1,0 +1,12 @@
+<div id="error_explanation" class="box">
+  <div class="box-header danger">
+    <h3><%= pluralize(record.errors.count, "error") %>:</h3>
+  </div>
+  <div class="box-body">
+    <ul>
+      <% record.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

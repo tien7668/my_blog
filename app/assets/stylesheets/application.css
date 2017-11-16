@@ -12,5 +12,5 @@
  *
  *= require_tree ./libs
  *= require gentelella_vendor
- *= require_self
+ *= require main
  */

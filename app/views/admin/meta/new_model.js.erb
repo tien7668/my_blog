@@ -1,0 +1,1 @@
+$("#form-model").html("<%= escape_javascript(render(partial: "admin/" + @record.class.name.pluralize.underscore.downcase + "/form", locals: {record: @record}))%>");

@@ -1,0 +1,9 @@
+<% records.each do |u| %>
+    <div class="list-item pointer">
+      <%= link_to edit_admin_user_path(u), :remote => true, :class => "edit-user-link pointer block" do %>
+            <%= u.name %>
+            <small class="block"><i class="fa fa-envelope m-r-sm text-muted"></i><%= u.username %></small>
+            <small class="block"><%= u.role %></small>
+      <% end %>
+    </div>
+<% end %>

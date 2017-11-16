@@ -34,9 +34,11 @@
     <% end %>
     <%= render "layouts/admin/side_nav" %>
     <%= render "layouts/admin/top_nav" %>
+    <!-- page content -->
     <div class="right_col" role="main">
       <%= yield %>
     </div>
+    <!-- /page content -->
     <%= render "layouts/admin/footer" %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= yield :more_js %>
