@@ -34,9 +34,10 @@
             success(commentsArray);
           },
           postComment: function(commentJSON, success, error) {
+            console.log(commentJSON);
+            console.log(commentJSON);
+            <% if user_signed_in? %>
             success(commentJSON);
-            console.log(commentJSON);
-            console.log(commentJSON);
             $.ajax({
                   method: "POST",
                   url: "<%= comments_save_comment_path %>",
@@ -44,7 +45,9 @@
                 })
                 .done(function( data ) {
                 });
-
+            <% else  %>
+                alert("Login to comment");
+            <% end %>
           },
           putComment: function(commentJSON, success, error) {
             success(commentJSON);
