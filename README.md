@@ -5,8 +5,7 @@ A Blog CMS base on Ruby on Rails framework, has 3 section:
 * **Front panel** : allow visitors to view, sort post list, comment(for logged user)
 * **REST API** : RESTful api for retrieve posts (with search)
 
-[live page]: https://tien7668-blog.herokuapp.com/
-
+[Live page](https://tien7668-blog.herokuapp.com)
 ### Local Installing and Usage
 
 Step 1: clone this project
