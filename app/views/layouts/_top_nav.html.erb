@@ -1,25 +1,23 @@
-<!-- top navigation -->
 <div class="top_nav">
   <div class="nav_menu">
-    <nav class="" role="navigation">
-      <div class="nav toggle">
-        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-      </div>
+      <h1 class="m-l-lg absolute width-full-vh"><%= link_to('My Blog', root_path, class: "absolute") %></h1>
 
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <%= image_tag "default/avatar.png" %> <%= current_user.username %>
+            <%= current_user.username %>
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
-            <li><%= link_to('<i class="fa fa-windows pull-right"></i> Read blog'.html_safe, root_path) %> </li>
+            <li><%= link_to('<i class="fa fa-pencil pull-right"></i> Go to CRM'.html_safe, admin_posts_path) %> </li>
             <li><%= link_to('<i class="fa fa-sign-out pull-right"></i> Log Out'.html_safe, destroy_user_session_path, :method => :delete) %> </li>
           </ul>
         </li>
+        <% else %>
+        <li><%= link_to('Log in', new_user_session_path, class: "dropdown-item") %></li>
+        <% end %>
       </ul>
-    </nav>
   </div>
-
 </div>
 <!-- /top navigation -->

@@ -1,0 +1,11 @@
+<% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+        <script type="text/javascript">
+          jQuery(document).ready(function() {
+            <% if name.to_s == 'notice' || name.to_s == 'error' || name.to_s == 'alert'%>
+            $.growl.<%= name.to_s == 'notice' ? 'notice' : 'error' %>({message: "<%= msg %>"});
+            <% end %>
+          });
+        </script>
+    <% end %>
+<% end %>

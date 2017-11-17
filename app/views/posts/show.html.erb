@@ -1,0 +1,66 @@
+<div class="x_panel">
+  <div class="row">
+    <div class="align-center">
+      <h1> <%= @post.title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <%= @post.content.html_safe %>
+  </div>
+</div>
+<div class="x_panel p-a-lg">
+  <h2> Comments </h2>
+  <div id="comments-container" class="row"> </div>
+</div>
+<% content_for :more_js do  %>
+    <script>
+      $(function() {
+        $('#comments-container').comments({
+          profilePictureURL: '/assets/default/avatar.png',
+          enableReplying: false,
+          enableUpvoting: false,
+          getComments: function(success, error) {
+            var commentsArray = [];
+            <% @post.comments.each do |c| %>
+              commentsArray.push({
+                id: '<%= c.id %>',
+                content: '<%= c.content %>',
+                created: '<%= c.created_at %>',
+                fullname: '<%= c.user.name %>',
+                created_by_current_user: <%= c.user.id == current_user.id %>,
+              })
+            <% end %>
+            console.log("sadasdas", commentsArray);
+            success(commentsArray);
+          },
+          postComment: function(commentJSON, success, error) {
+            success(commentJSON);
+            console.log(commentJSON);
+            console.log(commentJSON);
+            $.ajax({
+                  method: "POST",
+                  url: "<%= comments_save_comment_path %>",
+                  data: { comment:{post_id: '<%= @post.id %>',content: commentJSON.content} }
+                })
+                .done(function( data ) {
+                });
+
+          },
+          putComment: function(commentJSON, success, error) {
+            success(commentJSON);
+            console.log(commentJSON);
+            console.log(commentJSON);
+            $.ajax({
+                  method: "PUT",
+                  url: "<%= comments_save_comment_path %>",
+                  data: { comment:{id: commentJSON.id, post_id: '<%= @post.id %>',content: commentJSON.content} }
+                })
+                .done(function( data ) {
+                });
+          }
+        });
+      });
+    </script>
+<% end %>
+
+

@@ -10,8 +10,7 @@
         <%= f.input :name , class: 'form-control'%>
         <%= f.input :username %>
         <%= f.input :email %>
-        <div class="clearfix"></div>
-        <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn success w-100 m-y-sm', id:"regionSubmit" %>
+        <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md', id:"userSubmit" %>
 
     <% end %>
   </div>

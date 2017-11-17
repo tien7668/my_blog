@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
-//= require turbolinks
-//= require ./libs/bootstrap.min.js
+//= require_tree ./libs
 //= require gentelella_vendor
+//= require ckeditor/init
+//= require main
 

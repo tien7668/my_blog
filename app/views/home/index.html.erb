@@ -1,1 +1,123 @@
-home index
+<div class="col-xs-12">
+  <div class="top_nav" id="vutien">
+    <div class="nav_menu">
+      <nav class="" >
+        <ul class="nav navbar-nav navbar-right">
+          <li class="">
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-sort not-active" style="font-size: 40px"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-usermenu pull-right">
+              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-ASC"> sort ASC</a></li>
+              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-DEC">sort DEC</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div id="grid" class="col-xs-12">
+    <% @posts.each do |p| %>
+      <div class="item col-xs-4" data-title="<%= p.title %>">
+        <a href="<%= post_path(p) %>">
+          <div class="x_panel">
+            <h2><%= p.title %></h2>
+            <small class="right"><%= p.created_at %></small>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :more_js do  %>
+    <script>
+      'use strict';
+
+      var Shuffle = window.Shuffle;
+
+      var Demo = function (element) {
+        this.element = element;
+
+        this.shuffle = new Shuffle(element, {
+          itemSelector: '.item',
+          sizer: element.querySelector('.my-sizer-element'),
+        });
+
+        this.addSorting();
+
+        this.mode = 'exclusive';
+      };
+
+      Demo.prototype.toggleMode = function () {
+        if (this.mode === 'additive') {
+          this.mode = 'exclusive';
+        } else {
+          this.mode = 'additive';
+        }
+      };
+
+      Demo.prototype.addSorting = function () {
+//        var sort = document.querySelector('#vutien');
+//        sort.addEventListener('click', this._handleSortChange.bind(this));
+        var sortGroup = document.getElementsByClassName('sort-options');
+
+        if (sortGroup.length == 0) {
+          return;
+        }
+        for(var i = 0; i < sortGroup.length; i++)
+        {
+          sortGroup.item(i).addEventListener('click', this._handleSortChange.bind(this));
+        }
+      };
+
+      Demo.prototype._handleSortChange = function (evt) {
+        // Create the sort options to give to Shuffle.
+        var value = evt.target.getAttribute('data-sort');
+        var options = {};
+
+        function sortByDate(element) {
+          return element.getAttribute('data-created');
+        }
+
+        function sortByTitle(element) {
+          return element.getAttribute('data-title').toLowerCase();
+        }
+        console.log("asdas", evt.target.getAttribute('data-sort'))
+//        if (value === 'date-created') {
+//          options = {
+//            reverse: true,
+//            by: sortByDate,
+//          };
+//        } else if (value === 'title') {
+//          options = {
+//            by: sortByTitle,
+//          };
+//        }
+        if (value === 'date-ASC') {
+          options = {
+            reverse: true,
+            by: sortByDate,
+          };
+        } else if (value === 'date-DEC') {
+          options = {
+            by: sortByDate,
+          };
+        }else if (value === 'title') {
+          options = {
+            by: sortByTitle,
+          };
+        }
+        console.log(options)
+        this.shuffle.sort(options);
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        window.demo = new Demo(document.getElementById('grid'));
+      });
+
+    </script>
+<% end %>
+
+

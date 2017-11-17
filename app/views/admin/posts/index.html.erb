@@ -1,0 +1,26 @@
+<!-- ############ PAGE START-->
+<div class="row">
+  <!-- column -->
+  <div class="col-sm-3">
+    <div class=" x_panel">
+      <%= render partial: "admin/meta/list" %>
+    </div>
+  </div>
+  <!-- /column -->
+
+  <!-- column -->
+  <div class="col-sm-9">
+      <div id="form-model">
+      </div>
+  </div>
+  <!-- /column -->
+</div>
+<!-- ############ PAGE END-->
+
+<% content_for :more_js do  %>
+    <script>
+      $(function() {
+
+      });
+    </script>
+<% end %>

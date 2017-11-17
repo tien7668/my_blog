@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   namespace :admin do
     resources :users
+    resources :posts
   end
+  resources :posts
+  post 'comments/save_comment'
+  put 'comments/save_comment'
 end

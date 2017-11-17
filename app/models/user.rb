@@ -7,4 +7,14 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :username, use: :slugged
+
+  has_many :posts
+  has_many :comments
+
+  def admin?
+    self.role == "admin" || false
+  end
+  def user?
+    self.role == "user" || false
+  end
 end

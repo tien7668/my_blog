@@ -1,0 +1,18 @@
+<div class="x_panel">
+  <div class="x_title">
+    Post Form
+  </div>
+  <div class="x_content">
+    <%= simple_form_for [:admin, record] , html: { class: 'form-horizontal',:id => 'postForm' } do |f| %>
+        <% if record.errors.any? %>
+            <%= render partial: "admin/meta/error_explanation", locals: {record: record} %>
+        <% end %>
+        <%= f.input :title %>
+        <label class="control-label string optional" for="post_content">Content</label>
+        <%= f.cktext_area :content, id: 'sometext' %>
+        <div class="clearfix"></div>
+        <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md', id:"postSubmit" %>
+    <% end %>
+  </div>
+  <script></script>
+</div>

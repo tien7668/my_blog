@@ -4,11 +4,24 @@
     <title>MyBlog</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
   <body class="front">
+  <%= render "layouts/top_nav" %>
+  <div class="container body">
+    <% flash.each do |key, value| %>
+        <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+    <!-- page content -->
     <%= yield %>
+    <!-- /page content -->
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <%= render 'layouts/messages' %>
+  <%= yield :more_js %>
   </body>
 </html>
+

@@ -9,3 +9,5 @@ user = CreateAdmin.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 CreateDefaultUser.new.call
 puts 'CREATED 10 DEFAULT USER '
+CreateDefaultPost.new.call
+puts 'CREATED DEFAULT POST FOR EACH USER '

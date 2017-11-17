@@ -6,6 +6,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>My Blog</title>
+  <%= csrf_meta_tags %>
+
   <meta name="description" content="My Blog">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -25,7 +27,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body class="nav-md">
   <div class="container body">
@@ -35,11 +37,12 @@
     <%= render "layouts/admin/side_nav" %>
     <%= render "layouts/admin/top_nav" %>
     <!-- page content -->
-    <div class="right_col" role="main">
+    <div class="right_col height-full-vh" role="main">
       <%= yield %>
     </div>
     <!-- /page content -->
     <%= render "layouts/admin/footer" %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application' %>
+<%= render 'layouts/messages' %>
 <%= yield :more_js %>
 </body>

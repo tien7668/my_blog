@@ -1,5 +1,25 @@
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}
+.height-full-vh{
+  height: 100vh
+}
+.width-full-vh{
+  width: 100vh
+}
+.align-center{
+  text-align: center;
+}
 .front{
   background: #F7F7F7
+}
+.front .container{
+  padding:10rem
+}
+.front footer{
+  width: 100%;
+  margin-left: 0px;
 }
 small {
   font-size: 90%;
@@ -10,10 +30,22 @@ small {
 .fixed{
   position: fixed!important;
 }
+.absolute{
+  position: absolute!important;
+}
+.left{
+  float: left
+}
+.right{
+  float: right
+}
 .m-0{
   margin: 0rem!important;
 }
 
+.p-0{
+  padding: 0rem!important;
+}
 .m-a {
   margin: 1rem!important;
 }
@@ -29,6 +61,12 @@ small {
 }
 .m-t-lg {
   margin-top: 3rem!important;
+}
+.m-t-lgg {
+  margin-top: 6rem!important;
+}
+.m-t-lggg {
+  margin-top: 9rem!important;
 }
 .m-y-lg {
   margin-top: 3rem!important;
@@ -202,4 +240,37 @@ small {
 }
 .padding-xs {
   padding: 0.5rem;
+}
+.pointer a:hover{
+  background: #E7E7E7;
+}
+.pointer a:focus{
+  background: #E7E7E7;
+}
+.pointer a:active{
+  background: #E7E7E7;
+}
+span.send, span.save, span.delete{
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
 }
