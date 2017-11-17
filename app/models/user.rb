@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
-  scope :ordered, ->() { order("users.created_at asc") }
+  scope :ordered, ->() { order("users.created_at desc") }
 
   def admin?
     self.role == "admin" || false

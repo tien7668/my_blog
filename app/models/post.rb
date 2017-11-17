@@ -3,5 +3,5 @@ class Post < ApplicationRecord
   has_many :comments
   extend FriendlyId
   friendly_id :title, use: :slugged
-  scope :ordered, ->() { order("users.created_at asc") }
+  scope :ordered, ->() { order("users.created_at desc") }
 end
