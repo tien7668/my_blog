@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   def index
+
     @records = policy_scope(Post)
     # respond_to do |format|
     #   format.html
@@ -15,6 +16,9 @@ class Admin::PostsController < Admin::BaseController
 
   def create
     @record = Post.new(post_params)
+    @record.user_id = current_user.id
+    @record.content.gsub! '<pre>', '<p>'
+    @record.content.gsub! '</pre>', '</p>'
     if @record.save
       redirect_to admin_posts_path
     else
@@ -32,6 +36,8 @@ class Admin::PostsController < Admin::BaseController
 
   def update
     resource.update(post_params)
+    resource.content.gsub! '<pre>', '<p>'
+    resource.content.gsub! '</pre>', '</p>'
     if resource.save
       redirect_to admin_posts_path
     else

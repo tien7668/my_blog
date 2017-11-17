@@ -1,15 +1,15 @@
 <div class="col-xs-12">
   <div class="top_nav" id="vutien">
-    <div class="nav_menu">
+    <div class="front nav_menu">
       <nav class="" >
         <ul class="nav navbar-nav navbar-right">
           <li class="">
             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-sort not-active" style="font-size: 40px"></i>
+              <i class="fa fa-sort not-active" style="font-size: 30px"></i>
             </a>
             <ul class="dropdown-menu dropdown-usermenu pull-right">
-              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-ASC"> sort ASC</a></li>
-              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-DEC">sort DEC</a></li>
+              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-ASC">Oldest Posts<i class="fa fa-sort-amount-asc pull-right"></i></a></li>
+              <li><a href="javascript:void(0)" class="sort-options" data-sort="date-DEC">Latest Posts<i class="fa fa-sort-amount-desc pull-right"></i></a></li>
             </ul>
           </li>
         </ul>
@@ -97,11 +97,11 @@
 //        }
         if (value === 'date-ASC') {
           options = {
-            reverse: true,
             by: sortByDate,
           };
         } else if (value === 'date-DEC') {
           options = {
+            reverse: true,
             by: sortByDate,
           };
         }else if (value === 'title') {

@@ -1,6 +1,6 @@
 class CreateDefaultPost
   def call
-    users = User.where("username like ? ","%seed_user_%" )
+    users = User.where("username like ? ","%user_%" )
     users.each do |u|
       if (u.posts.length == 0 )
           (1..2).each do |i|

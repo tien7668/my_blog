@@ -10,6 +10,21 @@
         <%= f.input :name , class: 'form-control'%>
         <%= f.input :username %>
         <%= f.input :email %>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label "Password", required: record.new_record? ? true : false %>
+              <%= f.password_field :password, class: 'form-control' , placeholder:"Enter a password", autocomplete:"off", required: record.new_record? ? true : false %>
+              <small class="text-muted">Require at least 6 characters</small>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label "Password Confirmation", required: record.new_record? ? true : false %>
+              <%= f.password_field :password_confirmation, class: 'form-control' , placeholder:"Re-enter a password", autocomplete:"off", required: record.new_record? ? true : false%>
+            </div>
+          </div>
+        </div>
         <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md', id:"userSubmit" %>
 
     <% end %>
