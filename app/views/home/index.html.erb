@@ -19,7 +19,7 @@
 
   <div id="grid" class="col-xs-12">
     <% @posts.each do |p| %>
-      <div class="item col-xs-4" data-title="<%= p.title %>">
+      <div class="item col-xs-4" data-title="<%= p.title %>" data-date-created="<%= p.created_at.strftime('%Y-%m-%d %H:%M:%S') %>">
         <a href="<%= post_path(p) %>">
           <div class="x_panel">
             <h2><%= p.title %></h2>
@@ -97,11 +97,11 @@
 //        }
         if (value === 'date-ASC') {
           options = {
+            reverse: true,
             by: sortByDate,
           };
         } else if (value === 'date-DEC') {
           options = {
-            reverse: true,
             by: sortByDate,
           };
         }else if (value === 'title') {
