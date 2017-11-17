@@ -23,7 +23,7 @@
         <a href="<%= post_path(p) %>">
           <div class="x_panel">
             <h2><%= p.title %></h2>
-            <small class="right"><%= p.created_at %></small>
+            <small class="right"><%= p.created_at.strftime('%m/%d/%Y - %H:%M:%S') %></small>
           </div>
         </a>
       </div>

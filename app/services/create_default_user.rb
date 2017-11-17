@@ -4,8 +4,8 @@ class CreateDefaultUser
       temp = 'user_'+i.to_s
       user = User.find_or_create_by!(username: temp) do |user|
         user.email = temp+'@gmail.com'
-        user.password = temp
-        user.password_confirmation = temp
+        user.password = 123456
+        user.password_confirmation = 123456
         user.name = temp
         user.username = temp
         user.slug = temp
