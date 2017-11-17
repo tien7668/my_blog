@@ -16,7 +16,7 @@
     <script>
       $(function() {
         $('#comments-container').comments({
-          profilePictureURL: '/assets/default/avatar.png',
+          profilePictureURL: '<%= image_url('default/avatar.png') %>',
           enableReplying: false,
           enableUpvoting: false,
           getComments: function(success, error) {
