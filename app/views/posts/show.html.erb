@@ -27,7 +27,7 @@
                 content: '<%= c.content %>',
                 created: '<%= c.created_at %>',
                 fullname: '<%= c.user.name %>',
-                created_by_current_user: <%= c.user.id == current_user.id %>,
+                created_by_current_user: <%= user_signed_in? && c.user.id == current_user.id %>,
               })
             <% end %>
             console.log("sadasdas", commentsArray);
