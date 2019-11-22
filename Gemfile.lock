@@ -64,6 +64,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.13)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -136,6 +137,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    ed25519 (1.2.4)
     em-http-request (1.1.5)
       addressable (>= 2.3.4)
       cookiejar (!= 0.3.1)
@@ -366,6 +368,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -382,6 +385,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   csv
   devise
+  ed25519 (>= 1.2, < 2.0)
   faye
   figaro
   filterrific
