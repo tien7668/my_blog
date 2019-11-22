@@ -1,18 +1,34 @@
+<div class="row m-b-xs">
+  <div class="col-xs-6 right">
+    <%= form_for_filterrific @filterrific  do |f| %>
+      <div class="row">
+        <div class="col-xs-4">
+          <%= f.select(
+                  :with_category_id,
+                  @filterrific.select_options[:with_category_id],
+                  { include_blank: '- Any Cat -' }, class: 'form-control'
+              ) %>
+        </div>
+        <div class="col-xs-8 p-0">
+          <%= f.text_field(:search, :placeholder => "Search by title/content/category", class: 'filterrific-periodically-observed form-control') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 <!-- ############ PAGE START-->
 <div class="row">
   <!-- column -->
-  <div class="col-sm-3">
     <div class=" x_panel">
       <%= render partial: "admin/meta/list" %>
     </div>
-  </div>
   <!-- /column -->
 
   <!-- column -->
-  <div class="col-sm-9">
-      <div id="form-model">
-      </div>
-  </div>
+<!--  <div class="col-sm-9">-->
+<!--      <div id="form-model">-->
+<!--      </div>-->
+<!--  </div>-->
   <!-- /column -->
 </div>
 <!-- ############ PAGE END-->

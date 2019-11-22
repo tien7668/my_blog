@@ -1,0 +1,31 @@
+<div id="filterrific_results">
+  <div>
+    <% records.each do |item| %>
+      <article class="blog_item">
+        <div class="blog_item_img">
+          <% if item.photo.present? %><%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%> <% end %>
+          <!--              <div class="upload-preview card-img rounded-0">-->
+          <!--                <div class="image-preview" style="<%#= item.photo.present? ? "background-image: url('"+item.photo.try(:url)+"');background-size: contain;background-position: center center;" : "" %>"></div>-->
+          <!--              </div>-->
+          <a href="#" class="blog_item_date">
+            <h3><%= item.created_at.strftime("%d") %></h3>
+            <p><%= item.created_at.strftime("%b") %></p>
+            <p><%= item.created_at.strftime("%Y") %></p>
+          </a>
+        </div>
+
+        <div class="blog_details">
+          <a class="d-inline-block" href="<%= post_path(item) %>">
+            <h2><%= item.title %></h2>
+          </a>
+          <p><%= item.content.html_safe %></p>
+          <ul class="blog-info-link">
+            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
+            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+          </ul>
+        </div>
+      </article>
+    <% end %>
+  </div>
+  <%= paginate records %>
+</div>

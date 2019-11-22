@@ -20,6 +20,15 @@ module Admin
       flash[:alert] = "You are not authorized to perform this action."
       redirect_to(request.referrer || new_user_session_path)
     end
+
+
+    def resource(model)
+      @record ||= find_record(model)
+    end
+
+    def find_record(model)
+      params[:id].present? ? model.constantize.friendly.find(params[:id]) : model.constantize.new
+    end
   end
 
 end

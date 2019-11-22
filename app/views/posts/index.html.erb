@@ -1,0 +1,122 @@
+<%= render(partial: "layouts/top_nav", :locals => {:c => ""}) %>
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb_iner text-center">
+          <div class="breadcrumb_iner_item">
+            <h2>Our blog</h2>
+            <p>Home<span>//</span>blog</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcrumb start-->
+
+
+<!--================Blog Area =================-->
+<section class="blog_area section_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="blog_left_sidebar">
+          <%= render partial: "list", locals: {records: @records } %>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="blog_right_sidebar">
+          <aside class="single_sidebar_widget search_widget">
+            <%= form_for_filterrific @filterrific  do |f| %>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <%= f.text_field(:search, :placeholder => "Search by title/content/category", class: 'filterrific-periodically-observed form-control') %>
+                  <div class="input-group-append">
+                    <button class="btn" type="button"><i class="ti-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </aside>
+
+          <aside class="single_sidebar_widget post_category_widget">
+            <h4 class="widget_title">Category</h4>
+            <ul class="list cat-list">
+              <% Category.all.each do |i| %>
+              <li>
+                <%= link_to "<p>#{i.name}</p><p>#{i.posts.size > 0 ? "(#{i.posts.size})" : ""}</p>".html_safe, posts_path(filterrific: {with_category_id: i.id}), remote: true, class: "d-flex" %>
+              </li>
+                <% end %>
+            </ul>
+          </aside>
+
+          <aside class="single_sidebar_widget popular_post_widget">
+            <h3 class="widget_title">Recent Post</h3>
+            <div class="media post_item">
+              <%= image_tag('kanox_images/post/post_2.png')%>
+              <div class="media-body">
+                <a href="single-blog.html">
+                  <h3>The Amazing Hubble</h3>
+                </a>
+                <p>02 Hours ago</p>
+              </div>
+            </div>
+          </aside>
+          <aside class="single_sidebar_widget tag_cloud_widget">
+            <h4 class="widget_title">Tag Clouds</h4>
+            <ul class="list">
+              <% ActsAsTaggableOn::Tag.most_used(10).each do |i|  %>
+                <% if Post.tagged_with(i.name).size > 0 %>
+
+                  <li>
+                    <%= link_to "<p>#{i.name}</p>".html_safe, posts_path(filterrific: {with_tag: i.name}), remote: true, class: "d-flex" %>
+                    <a href="#"><%= i.name %></a>
+                  </li>
+                <% end  %>
+              <% end %>
+            </ul>
+          </aside>
+
+
+          <aside class="single_sidebar_widget instagram_feeds">
+            <h4 class="widget_title">Instagram Feeds</h4>
+            <ul class="instagram_row flex-wrap">
+              <li>
+                <a href="#">
+                  <%= image_tag('kanox_images/post/post_5.png', :class => 'img-fluid')%>
+                </a>
+              </li>
+            </ul>
+          </aside>
+
+
+          <aside class="single_sidebar_widget newsletter_widget">
+            <h4 class="widget_title">Newsletter</h4>
+
+            <form action="#">
+              <div class="form-group">
+                <input type="email" class="form-control" onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+              </div>
+              <button class="button rounded-0 primary-bg text-white w-100 btn_4"
+                      type="submit">Subscribe</button>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================Blog Area =================-->
+
+<% content_for :more_js do  %>
+    <script>
+      $(function() {
+
+      });
+    </script>
+<% end %>
+
+

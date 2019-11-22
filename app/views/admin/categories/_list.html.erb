@@ -1,0 +1,15 @@
+<% records.each do |u| %>
+    <div class="list-item pointer ">
+      <%= link_to edit_admin_category_path(u), :remote => true, :class => "p-l-md p-t-md p-b-md block" do %>
+          <div class="row">
+            <div class="col-xs-2">
+              <i class="fa fa-user m-r-sm text-muted"></i>
+            </div>
+            <div class="col-xs-10">
+              <small class="block"> <%= u.name %> </small>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+<% end %>

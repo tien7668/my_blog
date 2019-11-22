@@ -1,14 +1,88 @@
-<% records.each do |p| %>
-    <div class="list-item pointer">
-      <%= link_to edit_admin_post_path(p), :remote => true, :class => "p-l-md p-t-md p-b-md block" do %>
-          <div class="row">
-            <div class="col-xs-2">
-              <i class="fa fa-newspaper-o m-r-sm text-muted"></i>
+<div id="filterrific_results">
+  <div class="table-responsive panel p-a-md">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th>Tags</th>
+        <th>Created by</th>
+        <th>Created at</th>
+        <th>
+          <% if current_user.admin? %>
+            <input id="check_all" type="checkbox" class="btn" style="margin-bottom: 4px"/>
+            <a herf="#" id="delete_all" class="m-l-xs"><i class='fa fa-trash-alt text-danger'></i></a>
+          <% end  %>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% records.each do |item| %>
+        <tr>
+          <input type="hidden" value=<%= item.id %> >
+          <td>
+            <div class="upload-preview" style="width: 100px; height:100px">
+              <div class="image-preview" style="<%= item.photo.present? ? "background-image: url('"+item.photo.try(:url)+"');background-size: contain;background-position: center center;" : "" %>"></div>
             </div>
-            <div class="col-xs-10">
-              <small class="block"> <%= p.title %> </small>
-            </div>
-          </div>
+          </td>
+          <td><%= item.title %></td>
+          <td><%= item.content.html_safe %></td>
+          <td><%= item.categories.map{|i| i.name} %></td>
+          <td><%= item.tag_list %></td>
+          <td><%= item.user.name %></td>
+          <td><%= item.created_at.strftime("%d-%m-%Y") %></td>
+          <td>
+            <%= link_to edit_admin_post_path(item), :class => "p-l-md" do %><i class="fa fa-edit text-secondary"></i><% end %>
+            <%= link_to_if (current_user.admin?), "<i class='fa fa-trash-alt text-danger'></i>".html_safe, admin_post_path(item), method: :delete, :data => {:confirm => 'Are you sure?'}, :class => "p-l-md" do %><% end %>
+          </td>
+          <td>
+            <% if current_user.admin? %>
+              <input type="checkbox" class="check" />
+            <% end %>
+          </td>
+        </tr>
       <% end %>
-    </div>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate records %>
+</div>
+
+<% content_for :more_js do %>
+  <script>
+    $(function(){
+      $("#check_all").change(function() {
+        if(this.checked) {
+          $(".check").prop('checked', true);
+        }else {
+          $(".check").prop('checked', false);
+        }
+      });
+
+      $("#delete_all").on('click', function(e){
+        e.preventDefault();
+        if (confirm('Delete all selected posts. Are you sure?')) {
+          var selected = [];
+          $('.check:checked').each(function() {
+            console.log($(this).closest("tr").find("input[type=hidden]").val())
+            selected.push($(this).closest("tr").find("input[type=hidden]").val())
+          });
+          if (selected.length > 0 ){
+            $.ajax({
+              method: "POST",
+              dataType: "script",
+              beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+              },
+              url: "<%= admin_ajax_delete_multiple_post_path %>",
+              data: { post_ids: selected }
+            })
+          }
+        }
+      });
+    })
+  </script>
+
 <% end %>

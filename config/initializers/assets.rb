@@ -13,4 +13,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( ckeditor/*)
+Rails.application.config.assets.precompile += %w( admin.js)
+Rails.application.config.assets.precompile += %w( admin.css)
+Rails.application.config.assets.precompile += %w( front.js)
+Rails.application.config.assets.precompile += %w( front.css)
+
+Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
+Rails.application.config.assets.precompile += %w(*.eot *.ttf *.woff *.woff2)
 

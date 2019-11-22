@@ -1,0 +1,59 @@
+<div class="x_panel">
+  <div class="x_title">
+    Post Form
+  </div>
+  <div class="x_content">
+    <%= simple_form_for [:admin, @record] , html: { class: 'form-horizontal',:id => 'postForm' } do |f| %>
+          <% if @record.errors.any? %>
+            <%= render partial: "admin/meta/error_explanation", locals: {record: @record} %>
+          <% end %>
+        <div class="row m-t-md">
+          <div class="col-xs-3">
+            <div class="upload-preview" style="width: 100%; height: 200px">
+              <div class="image-preview" style="<%= @record.photo.present? ? "background-image: url('"+@record.photo.try(:url)+"');background-size: contain;background-position: center center;" : "background-size: contain;background-position: center center;" %>">
+                <span style="pointer-events: none"></span>
+                <label for="image-upload" class="image-label">Photo</label>
+                <%= f.file_field :photo, required: true, class: "image-upload img_1"%>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-9">
+            <%= f.input :title %>
+            <label class="control-label string optional" for="post_content">Content</label>
+            <%= f.cktext_area :content %>
+            <%= f.association :categories %>
+            <div class="row m-0">
+              <%= f.label :tag_list, "Tags (cách bởi dấu phẩy)", class: 'control-label' %><br />
+              <%= f.text_field :tag_list, value: @record.tag_list.to_s, class: 'form-control'  %>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <%= f.submit @record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md pull-right', id:"postSubmit" %>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :more_js do  %>
+  <script>
+    $(function() {
+      $(".img_1").change(function (){
+        if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            console.log(this);
+            $(".img_1").closest('.image-preview').css('background-image','url('+e.target.result+')');
+          }
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+      (function() {
+        if (typeof CKEDITOR != 'undefined') {
+          if (CKEDITOR.instances['post_content']) { CKEDITOR.instances['post_content'].destroy(); }
+          CKEDITOR.replace('post_content');
+        }
+      })()
+    });
+  </script>
+<% end %>

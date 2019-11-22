@@ -1,0 +1,15 @@
+<div class="x_panel">
+  <div class="x_title">
+    User Form
+  </div>
+  <div class="x_content">
+    <%= simple_form_for [:admin, record] , html: { class: 'form-horizontal',:id => 'categoryForm' } do |f| %>
+        <% if record.errors.any? %>
+            <%= render partial: "admin/meta/error_explanation", locals: {record: record} %>
+        <% end %>
+        <%= f.input :name , class: 'form-control'%>
+        <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md', id:"categorySubmit" %>
+    <% end %>
+  </div>
+
+</div>

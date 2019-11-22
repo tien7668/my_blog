@@ -1,67 +1,109 @@
-<div class="x_panel">
-  <div class="row">
-    <div class="align-center">
-      <h1> <%= @post.title %></h1>
+<%= render(partial: "layouts/top_nav", :locals => {:c => ""}) %>
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg" style="<%= @post.photo.present? ? "background-image: url(#{@post.photo.try(:url)})" : "" %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb_iner text-center">
+          <div class="breadcrumb_iner_item">
+            <h2><%= @post.title %></h2>
+            <p><i class="fas fa-tag"></i> <%= @post.tag_list %> </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row p-a-lg">
-    <%= @post.content.html_safe %>
+</section>
+<!-- breadcrumb start-->
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area section_padding" style="padding-top: 10px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 posts-list">
+        <div class="single-post">
+          <div class="feature-img hide">
+            <% if @post.photo.present? %><%= image_tag(@post.photo.try(:url), :class => 'img-fluid' )%> <% end %>
+          </div>
+          <div class="blog_details">
+<!--            <h2><%#= @post.title %></h2>-->
+<!--            <ul class="blog-info-link mt-3 mb-4">-->
+<!--              <li><a href="#"><i class="fa fa-tag"></i> <%#= @post.tag_list %> </a></li>-->
+<!--              <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>-->
+<!--            </ul>-->
+            <p class="excert">
+              <%= @post.content.html_safe %>
+            </p>
+          </div>
+        </div>
+        <div class="navigation-top">
+          <div class="d-sm-flex justify-content-between text-center">
+            <p class="like-info hide"><span class="align-middle"><i class="far fa-heart"></i></span> Lily and 4
+              people like this</p>
+            <div class="col-sm-4 text-center my-2 my-sm-0">
+              <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
+            </div>
+            <ul class="social-icons">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+              <li><a href="#"><i class="fab fa-behance"></i></a></li>
+            </ul>
+          </div>
+          <div class="navigation-area">
+            <div class="row">
+              <div
+                class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                <% @prevPosts.each do |i| %>
+                  <div class="thumb">
+                    <a href="<%= post_path(i.id) %>">
+                      <%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px")%>
+                    </a>
+                  </div>
+                  <div class="arrow">
+                    <a href="<%= post_path(i.id) %>">
+                      <span class="lnr text-white ti-arrow-left"></span>
+                    </a>
+                  </div>
+                  <div class="detials">
+                    <p>Prev Post</p>
+                    <a href="<%= post_path(i.id) %>">
+                      <h4><%= i.title %></h4>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+              <div
+                class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                <% @nextPosts.each do |i| %>
+                  <div class="detials">
+                    <a href="<%= post_path(i.id) %>">
+                      <h4><%= i.title %></h4>
+                    </a>
+                  </div>
+                  <div class="arrow">
+                    <a href="<%= post_path(i.id) %>">
+                      <span class="lnr text-white ti-arrow-right"></span>
+                    </a>
+                  </div>
+                  <div class="thumb">
+                    <a href="<%= post_path(i.id) %>">
+                      <%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px" )%>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="x_panel p-a-lg">
-  <h2> Comments </h2>
-  <div id="comments-container" class="row"> </div>
-</div>
+</section>
+<!--================Blog Area end =================-->
 <% content_for :more_js do  %>
     <script>
       $(function() {
-        $('#comments-container').comments({
-          profilePictureURL: '<%= image_url('default/avatar.png') %>',
-          enableReplying: false,
-          enableUpvoting: false,
-          getComments: function(success, error) {
-            var commentsArray = [];
-            <% @post.comments.each do |c| %>
-              commentsArray.push({
-                id: '<%= c.id %>',
-                content: '<%= c.content %>',
-                created: '<%= c.created_at %>',
-                fullname: '<%= c.user.name %>',
-                created_by_current_user: <%= user_signed_in? && c.user.id == current_user.id %>,
-              })
-            <% end %>
-            console.log("sadasdas", commentsArray);
-            success(commentsArray);
-          },
-          postComment: function(commentJSON, success, error) {
-            console.log(commentJSON);
-            console.log(commentJSON);
-            <% if user_signed_in? %>
-            success(commentJSON);
-            $.ajax({
-                  method: "POST",
-                  url: "<%= comments_save_comment_path %>",
-                  data: { comment:{post_id: '<%= @post.id %>',content: commentJSON.content} }
-                })
-                .done(function( data ) {
-                });
-            <% else  %>
-                alert("Login to comment");
-            <% end %>
-          },
-          putComment: function(commentJSON, success, error) {
-            success(commentJSON);
-            console.log(commentJSON);
-            console.log(commentJSON);
-            $.ajax({
-                  method: "PUT",
-                  url: "<%= comments_save_comment_path %>",
-                  data: { comment:{id: commentJSON.id, post_id: '<%= @post.id %>',content: commentJSON.content} }
-                })
-                .done(function( data ) {
-                });
-          }
-        });
+
       });
     </script>
 <% end %>

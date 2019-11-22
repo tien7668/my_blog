@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: my_blog_dev
+  database: nmd_cms_dev
   username: postgres
   password: 1
 

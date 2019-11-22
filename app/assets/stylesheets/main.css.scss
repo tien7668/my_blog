@@ -1,3 +1,11 @@
+
+.hide{
+  display: none!important;
+}
+.invisible{
+  visibility: hidden!important;
+}
+
 .right_col{
   min-height: 1500px !important
 }
@@ -14,16 +22,16 @@
 .align-center{
   text-align: center;
 }
-.front{
+.login{
   background: #F7F7F7
 }
-.front .nav_menu{
+.login .nav_menu{
   border: none;
 }
-.front .container{
+.login .container{
   padding:10rem
 }
-.front footer{
+.login footer{
   width: 100%;
   margin-left: 0px;
 }
@@ -280,3 +288,47 @@ span.send, span.save, span.delete{
   margin-right: 5px;
   border-radius: 3px;
 }
+
+.upload-preview {
+  .image-preview {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #E5EBF4;
+    background-repeat: no-repeat;
+    color: #293B5A;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+  }
+
+  .image-preview input {
+    line-height: 200px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+  }
+  .image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #bdc3c7;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@import "kanox";

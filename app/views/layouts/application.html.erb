@@ -4,20 +4,18 @@
     <title>MyBlog</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'front', media: 'all' %>
   </head>
+  <body>
+    <div class="body kanox">
+      <!-- page content -->
+      <%= yield %>
+      <!-- /page content -->
+    </div>
 
-  <body class="front">
-  <%= render "layouts/top_nav" %>
-  <div class="container body">
-    <!-- page content -->
-    <%= yield %>
-    <!-- /page content -->
-  </div>
-
-  <%= javascript_include_tag 'application' %>
-  <%= render 'layouts/messages' %>
-  <%= yield :more_js %>
+    <%= javascript_include_tag 'front' %>
+    <%= render 'layouts/messages' %>
+    <%= yield :more_js %>
   </body>
 </html>
 

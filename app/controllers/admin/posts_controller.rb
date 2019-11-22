@@ -1,61 +1,63 @@
 class Admin::PostsController < Admin::BaseController
   def index
-
-    @records = policy_scope(Post)
-    # respond_to do |format|
-    #   format.html
-    #   format.js { render template: 'admin/meta/index.js.erb' }
-    # end
+    @filterrific = initialize_filterrific(
+        policy_scope(Post),
+        params[:filterrific],
+        # available_filters: [:search, :with_cycle_id],
+        :select_options => {
+            with_category_id: Category.options_for_select
+        }
+    ) or return
+    @records = @filterrific.find.order("created_at desc").page params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
-    respond_to do |format|
-      format.js { render template: 'admin/meta/new_model' }
-    end
   end
 
   def create
-    @record = Post.new(post_params)
-    @record.user_id = current_user.id
-    @record.content.gsub! '<pre>', '<p>'
-    @record.content.gsub! '</pre>', '</p>'
-    if @record.save
-      redirect_to admin_posts_path
-    else
-      # get_records
-      # @has_record = true
-      render :index
-    end
-  end
-
-  def edit
-    respond_to do |format|
-      format.js {render template: 'admin/meta/new_model'}
-    end
-  end
-
-  def update
-    resource.update(post_params)
+    resource.update(model_params)
+    resource.user_id = current_user.id
     resource.content.gsub! '<pre>', '<p>'
     resource.content.gsub! '</pre>', '</p>'
     if resource.save
       redirect_to admin_posts_path
     else
-      # get_records
-      # @has_record = true
-      render :index
+      render :new
     end
   end
 
+  def edit
+    render "new"
+  end
+
+  def update
+    create
+  end
+
+  def destroy
+    resource.destroy
+    redirect_to admin_posts_path
+  end
+
   def resource
-    @record ||= find_record
+    super("Post")
   end
 
-  def find_record
-    params[:id].present? ? Post.friendly.find(params[:id]) : Post.new
+  def model_params
+    params.require(:post).permit(:title, :content, :photo, :tag_list, :category_ids => [])
   end
 
-  def post_params
-    params.require(:post).permit(:title, :content)
+  def ajax_delete_multiple_post
+    params["post_ids"].each do |id|
+      p = Post.find_by(id: id)
+      if p.present?
+        p.destroy
+      end
+    end
+    render :js => "window.location = '/admin/posts'"
   end
 end
