@@ -83,7 +83,7 @@ gem 'filterrific' #Filter
 gem 'kaminari'
 gem 'select2-rails'
 gem 'jquery-rails'
-gem 'sidekiq'
+gem 'sidekiq', '<6'
 gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 6.0'
 
