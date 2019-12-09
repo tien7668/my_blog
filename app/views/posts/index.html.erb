@@ -1,13 +1,12 @@
 <%= render(partial: "layouts/top_nav", :locals => {:c => ""}) %>
 <!-- breadcrumb start-->
-<section class="breadcrumb breadcrumb_bg">
+<section class="breadcrumb breadcrumb_bg" style="<%= "background-image: url(assets/kanox_images/aaa/breadcrumb_bg.png)"%>">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="breadcrumb_iner text-center">
           <div class="breadcrumb_iner_item">
-            <h2>Our blog</h2>
-            <p>Home<span>//</span>blog</p>
+            <h2><%= t :articles %></h2>
           </div>
         </div>
       </div>

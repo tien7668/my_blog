@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :posts
   post 'comments/save_comment'
   put 'comments/save_comment'
+
+  get "about_us", to: "home#about_us"
+  get "service", to: "home#service"
 end

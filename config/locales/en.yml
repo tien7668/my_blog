@@ -30,5 +30,87 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   home: "Home"
+  about_us: "Về Chúng Tôi"
+  services: "Dịch Vụ"
+  slogan_1: "Giấc mơ nhật bản"
+  slogan_2: "Trong tầm tay"
+  mission_title: "Sứ mệnh của chúng tôi"
+  mission: "Mang các bạn đến một cuộc sống mơ ước tại Nhật Bản"
+  mission_1_title: "Lợi ích"
+  mission_1_content: "Đem lại cho các bạn cơ hội đc nhận mức thu nhập hấp dẫn cùng nhiều chế độ đãi ngộ tốt tại một trong những đất nước phát triển nhất thế giớ"
+  mission_2_title: "Phát triển"
+  mission_2_content: "Ngoài lợi ích về tài chính, bạn còn có cơ hội rõ ràng được phát triển bản thân thông qua việc học tập và chuyển giao các kỹ thuật kỹ năng tiên tiến "
+  mission_3_title: "Lệ phí minh bạch"
+  mission_3_content: "Tất cả các chi phí đều được minh bạch. Đảm bảo mọi khoản chi của bạn đều đúng mục đích, rõ ràng và hoàn toàn hợp lý."
+  mission_4_title: "Đồng hành 24/7"
+  mission_4_content: "Mọi thủ tục, quy trình đều được chúng tôi tư vấn, hỗ trợ nhiệt tình, từ lúc bạn bắt đầu có nhu cầu cho đến khi bạn ổn định cuộc sống ở Nhật"
+  years: "7 năm"
+  experiments: "kinh nghiệm"
+  about_company: "Về công ty chúng tôi"
+  about_company_title: "Thành công của bạn là thành công của chúng tôi"
+  about_company_content: "Với 7 năm kinh nghiệm làm
+                          trong lĩnh vực đưa học sinh sang Nhật để học tập và làm việc. Hiện tại công ty
+                          đã và đang kết nối với các trường Nhật ngữ trên khắp nước Nhật trong việc đưa các bạn
+                          du học sinh sang học tập và làm việc. Cùng với đó, công ty cũng đã liên kết với rất
+                          nhiều công ty trong nước trong việc đưa người lao động sang Nhật Bản để làm
+                          việc."
+  feature_title: "------------------------------"
+  feature: "Các con đường đến với Nhật Bản"
+  feature_1_title: "Thực tập sinh kỹ năng"
+  feature_1_content: "Lao động tại Nhật trong thời gian 1-5 năm. Được đào tạo kỹ thuật, kỹ năng và kiến thức về các lĩnh vực sản xuất của Nhật Bản.Sứ mệnh của chương trình Thực tập sinh kỹ năng là giúp cho các doanh nghiệp
+                                                                                                                                                   Nhật Bản thúc đẩy sự năng động hoá, quốc tế hoá trong hoạt động sản xuất của
+                                                                                                                                                   mình đồng thời hỗ trợ tạo cơ hội cho người lao động Việt Nam."
+  feature_2_title: "CT Kỹ năng đặc định"
+  feature_2_content: "Ngoài chương trình thực tấp sinh kỹ năng, hiện tại Để giải quyết vấn đề thiếu hụt
+                      lao động ngày càng trầm trọng, ngày 8/12, Chính phủ Nhật đã chính thức thông
+                      qua 2 tư cách lao động dành riêng cho chương trình TTS Nhật Bản và bắt đầu có
+                      hiêụ lực vào tháng 4/2019 visa mới có tên gọi là visa kỹ năng đặc định hay còn gọi
+                      là chương trình Tokutei Gino. Bắt kịp với chương trình mới này, hiện nay công ty
+                      chúng tôi đang hợp tác với công ty Pushon – nằm ở thủ đo Tokyo, và nhiều đơn vị
+                      phái cử khác trên khắp nước Nhật để trực tiếp đưa người lao động đi theo chương
+                      trình kỹ năng đặc định. Đối vơi chương trình này các bạn sẽ nhận được mức lương
+                      tương đương với người Nhật làm cùng vị trí làm việc."
+  feature_3_title: "Tư vấn du học Nhật Bản"
+  feature_3_content: "Công ty chúng tôi tự hào là công ty tư vấn du học Nhật Bản đầu tiên tại tỉnh Nam Định
+                      được cấp phép tư vấn du học cũng như đào tạo ngôn ngữ Nhật Bản bởi ủy ban nhân dân
+                      tỉnh Nam Định. Từ khi thành lập vào năm 2012 đến nay chúng tôi đã tư vấn thành công
+                      cho hơn 500 học sinh sang tu nghiệp và du học tại Nhật Bản. Qua nhiều năm kinh nghiệm
+                      trong công tác tư vấn du học cùng đội ngũ giáo viên chuyên nghiệp, nhiệt huyết bao gồm
+                      các giáo viên người Nhật luôn sẵn sàng đồng hành cùng học sinh không chỉ riêng trong
+                      việc học ngôn ngữ mà còn giải quyết các vấn đề trong cuộc sống hàng ngày cũng như sau
+                      khi sang Nhật."
+  satisfied_client:
+  total_project:
+  work_completed:
+  client_feedbacks: "Nhận xét từ những khách hàng"
+  client_1_name: "Trần Thị Thảo"
+  client_1_info: "Du học sinh trường KOHWA INSTITUTE OF JAPANESE LANGUAGE"
+  feedback_1: "Trung tâm rất nhiệt tình trong việc làm hồ sơ và hoàn thành mọi thủ tục. Em là một
+               trong những trường hợp có hồ sơ không được đẹp. Nhưng công ty với kinh nghiệm xử lý hồ sơ lâu
+               năm đã giúp em có 1 bộ hồ sơ hợp pháp lý về mọi mặt. Giúp con đường sang Nhật của em hoàn toàn
+               không gặp bất cứ khó khăn gì."
+  client_2_name: "Trần Văn Hùng"
+  client_2_info: "Du học sinh trường Yamate Japanese Language school"
+  feedback_2: "Giáo viên trung tâm luôn nhiệt tình trong công tác giảng dạy. Vì thầy cô giáo đã từng đi Nhật về nên
+               thầy cô có rất nhiều kinh nghiệm cho việc sinh sống, học tập và làm việc tại Nhật. Vậy nên học tập tại
+               trung tâm các bạn học sinh ngoài học tiếng Nhật luôn được dạy kèm về lối sống, văn hóa, con người
+               Nhật Bản. Giúp các bạn học sinh bớt bỡ ngỡ khi thời gian đầu sinh sống ở Nhật. Nhân viên công ty
+               rất tốt, luôn tận tình giúp đỡ gia đình và học sinh trong công tác chuẩn bị hồ sơ. Luôn tư vấn chọn
+               trường phù hợp cho các bạn học sinh lựa chọn. Trong quá trình xử lý hồ sơ các bạn rất cẩn thận,
+               cũng vì thế mà tỷ lệ đậu visa của công ty rất cao."
+  client_3_name: "Nguyễn Huệ Anh"
+  client_3_info: "Du học sinh trường Aoyama International Education Institute."
+  feedback_3: "Em thấy đây là chương trìao động đặc định mới rất hay,với một số tiền xuất ngoại rẻ
+               nhưng lại có nhiều ưu đãi và điều kiện đãi ngộ.Nhưng để có thể đi được thì cân quá trình học khá là
+               dài và vất vả nên sẽ cần phải cố gắng rất nhiều nếu muốn có thể đi được chương trình mới này."
+  team: "Đội ngũ công ty"
+
+  articles: "Bài viết"
+
+  learn_more: "Tìm hiểu thêm"
+  company: "Công ty trách nhiệm hữu hạn Nam Hà"
+  location: "Trụ sở"
+  location_1: "Tầng 21, tòa nhà Center Building, Hapulico Complex, số 1 Nguyễn Huy Tưởng, p. Thanh Xuân Trung, quận Thanh Xuân, Hà Nội. Điện thoại: 024 7309 5555, máy lẻ 370."
+  follow: "Theo dõi chúng tôi qua"
+  new_letter: "Để có những thông tin mới nhất, vui lòng để lại email"

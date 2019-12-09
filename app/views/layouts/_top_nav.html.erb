@@ -18,18 +18,15 @@
                 <a class="nav-link" href="<%= root_path %>"><%= t :home %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<%= root_path %>">About</a>
+                <a class="nav-link" href="<%= about_us_path %>"><%= t :about_us %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<%= root_path %>">Services</a>
+                <a class="nav-link" href="<%= service_path %>"><%= t :services %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<%= root_path %>">Portfolio</a>
+                <a class="nav-link" href="<%= posts_path %>"><%= t :articles %></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<%= posts_path %>">Blog</a>
-              </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown hide">
                 <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   pages
                 </a>
