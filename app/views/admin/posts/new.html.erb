@@ -21,11 +21,18 @@
             <%= f.input :title %>
             <label class="control-label string optional" for="post_content">Content</label>
             <%= f.cktext_area :content %>
+            <%= f.input :title_en %>
+            <label class="control-label string optional" for="post_content">Content en</label>
+            <%= f.cktext_area :content_en %>
+            <%= f.input :title_jp %>
+            <label class="control-label string optional" for="post_content">Content jp</label>
+            <%= f.cktext_area :content_jp %>
             <%= f.association :categories %>
             <div class="row m-0">
               <%= f.label :tag_list, "Tags (cách bởi dấu phẩy)", class: 'control-label' %><br />
               <%= f.text_field :tag_list, value: @record.tag_list.to_s, class: 'form-control'  %>
             </div>
+            <%= f.input :static_id %>
           </div>
         </div>
 
@@ -52,6 +59,10 @@
         if (typeof CKEDITOR != 'undefined') {
           if (CKEDITOR.instances['post_content']) { CKEDITOR.instances['post_content'].destroy(); }
           CKEDITOR.replace('post_content');
+          if (CKEDITOR.instances['post_content_en']) { CKEDITOR.instances['post_content_en'].destroy(); }
+          CKEDITOR.replace('post_content_en');
+          if (CKEDITOR.instances['post_content_jp']) { CKEDITOR.instances['post_content_jp'].destroy(); }
+          CKEDITOR.replace('post_content_jp');
         }
       })()
     });

@@ -1,12 +1,12 @@
 <%= render(partial: "layouts/top_nav", :locals => {:c => ""}) %>
 <!-- breadcrumb start-->
-<section class="breadcrumb breadcrumb_bg" style="<%= @post.photo.present? ? "background-image: url(#{@post.photo.try(:url)})" : "assets/kanox_images/aaa/breadcrumb_bg.png" %>">
+<section class="breadcrumb breadcrumb_bg" style="<%= @post.photo.present? ? "background-image: url(#{@post.photo.try(:url)})" : "assets/kanox_images/breadcrumb.png" %>">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="breadcrumb_iner text-center">
           <div class="breadcrumb_iner_item">
-            <h2><%= @post.title %></h2>
+            <h2><%= @post.titlee %></h2>
             <p><i class="fas fa-tag"></i> <%= @post.tag_list %> </p>
           </div>
         </div>
@@ -31,7 +31,7 @@
 <!--              <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>-->
 <!--            </ul>-->
             <p class="excert">
-              <%= @post.content.html_safe %>
+              <%= @post.contentt.html_safe %>
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@
                 <% @prevPosts.each do |i| %>
                   <div class="thumb">
                     <a href="<%= post_path(i.id) %>">
-                      <%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px")%>
+                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px")%> <% end %>
                     </a>
                   </div>
                   <div class="arrow">
@@ -67,7 +67,7 @@
                   <div class="detials">
                     <p>Prev Post</p>
                     <a href="<%= post_path(i.id) %>">
-                      <h4><%= i.title %></h4>
+                      <h4><%= i.titlee %></h4>
                     </a>
                   </div>
                 <% end %>
@@ -77,7 +77,7 @@
                 <% @nextPosts.each do |i| %>
                   <div class="detials">
                     <a href="<%= post_path(i.id) %>">
-                      <h4><%= i.title %></h4>
+                      <h4><%= i.titlee %></h4>
                     </a>
                   </div>
                   <div class="arrow">
@@ -87,7 +87,7 @@
                   </div>
                   <div class="thumb">
                     <a href="<%= post_path(i.id) %>">
-                      <%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px" )%>
+                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px" )%> <% end %>
                     </a>
                   </div>
                 <% end %>

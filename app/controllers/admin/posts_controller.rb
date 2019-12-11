@@ -48,7 +48,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def model_params
-    params.require(:post).permit(:title, :content, :photo, :tag_list, :category_ids => [])
+    params.require(:post).permit(:title, :content, :title_en, :content_en, :title_jp, :content_jp, :photo, :tag_list, :static_id, :category_ids => [])
   end
 
   def ajax_delete_multiple_post

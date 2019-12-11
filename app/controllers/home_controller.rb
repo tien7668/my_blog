@@ -4,9 +4,10 @@ class HomeController < ApplicationController
   end
 
   def about_us
-
+    @post = Post.find_by("static_id = 'about_us' ")
   end
+
   def service
-
   end
+
 end

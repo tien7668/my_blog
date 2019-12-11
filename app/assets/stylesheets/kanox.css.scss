@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Poppins:300,800|Roboto:300i,400,500,700");
+
 .kanox{
   .blog_item{
     .blog_item_img{
@@ -21,4 +23,7 @@
   //  height: auto;
   //  object-fit: cover;
   //}
+  h2{
+    font-family: 'arial'!important;
+  }
 }

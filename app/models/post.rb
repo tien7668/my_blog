@@ -37,4 +37,11 @@ class Post < ApplicationRecord
   }
 
   scope :ordered, ->() { order("users.created_at desc") }
+
+  def contentt
+    I18n.locale.to_s == "vn" ? self.content.html_safe : (I18n.locale.to_s == "en" ? self.content_en.html_safe : self.content_jp.html_safe) || self.content.html_safe
+  end
+  def titlee
+    I18n.locale.to_s == "vn" ? self.title.html_safe : (I18n.locale.to_s == "en" ? self.title_en.html_safe : self.title_jp.html_safe) || self.title.html_safe
+  end
 end
