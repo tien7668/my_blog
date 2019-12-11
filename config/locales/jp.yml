@@ -31,7 +31,6 @@
 
 jp:
   home: "ホーム"
-  about_us: "Về Chúng Tôi"
   services: "Dịch Vụ"
   slogan_1: "Giấc mơ nhật bản"
   slogan_2: "Trong tầm tay"
@@ -49,17 +48,11 @@ jp:
   experiments: "kinh nghiệm"
   about_company: "Về công ty chúng tôi"
   about_company_title: "Thành công của bạn là thành công của chúng tôi"
-  about_company_content: "Với 7 năm kinh nghiệm làm
-                          trong lĩnh vực đưa học sinh sang Nhật để học tập và làm việc. Hiện tại công ty
-                          đã và đang kết nối với các trường Nhật ngữ trên khắp nước Nhật trong việc đưa các bạn
-                          du học sinh sang học tập và làm việc. Cùng với đó, công ty cũng đã liên kết với rất
-                          nhiều công ty trong nước trong việc đưa người lao động sang Nhật Bản để làm
-                          việc."
+  about_company_content: "Chúng tôi tự hào là công ty tư vấn du học Nhật Bản đầu tiên tại tỉnh Nam Định được cấp phép tư vấn du học cũng như đào tạo ngôn ngữ Nhật Bản bởi ủy ban nhân dân tỉnh Nam Định. Từ khi thành lập vào năm 2012 đến nay chúng tôi đã tư vấn thành công cho hơn 500 học sinh sang tu nghiệp và du học tại Nhật Bản. Qua nhiều năm kinh nghiệm trong công tác tư vấn du học cùng đội ngũ giáo viên chuyên nghiệp, nhiệt huyết bao gồm các giáo viên người Nhật luôn sẵn sàng đồng hành cùng học sinh không chỉ riêng trong việc học ngôn ngữ mà còn giải quyết các vấn đề trong cuộc sống hàng ngày cũng như sau khi sang Nhật."
   feature_title: "------------------------------"
   feature: "Các con đường đến với Nhật Bản"
   feature_1_title: "Thực tập sinh kỹ năng"
   feature_1_content: "Lao động tại Nhật trong thời gian 1-5 năm. Được đào tạo kỹ thuật, kỹ năng và kiến thức về các lĩnh vực sản xuất của Nhật Bản.Sứ mệnh của chương trình Thực tập sinh kỹ năng là giúp cho các doanh nghiệp
-                                                                                                                                                   Nhật Bản thúc đẩy sự năng động hoá, quốc tế hoá trong hoạt động sản xuất của
                                                                                                                                                    mình đồng thời hỗ trợ tạo cơ hội cho người lao động Việt Nam."
   feature_2_title: "CT Kỹ năng đặc định"
   feature_2_content: "Ngoài chương trình thực tấp sinh kỹ năng, hiện tại Để giải quyết vấn đề thiếu hụt
@@ -114,3 +107,5 @@ jp:
   location_1: "Tầng 21, tòa nhà Center Building, Hapulico Complex, số 1 Nguyễn Huy Tưởng, p. Thanh Xuân Trung, quận Thanh Xuân, Hà Nội. Điện thoại: 024 7309 5555, máy lẻ 370."
   follow: "Theo dõi chúng tôi qua"
   new_letter: "Để có những thông tin mới nhất, vui lòng để lại email"
+  recent_posts: "Bài viết mới nhất"
+  tag_clouds: "Tags"
