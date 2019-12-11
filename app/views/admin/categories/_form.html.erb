@@ -8,6 +8,8 @@
             <%= render partial: "admin/meta/error_explanation", locals: {record: record} %>
         <% end %>
         <%= f.input :name , class: 'form-control'%>
+        <%= f.input :name_en , class: 'form-control'%>
+        <%= f.input :name_jp , class: 'form-control'%>
         <%= f.submit record.new_record? ? "Create" : "Update", class: 'btn btn-default m-t-md', id:"categorySubmit" %>
     <% end %>
   </div>

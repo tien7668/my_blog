@@ -28,7 +28,7 @@
             </div>
           </td>
           <td><%= item.title %></td>
-          <td><%= item.content.html_safe %></td>
+          <td><%= (sanitize item.content.gsub("\n", "<br />")[0..500], tags: %w(strong br)) %></td>
           <td><%= item.categories.map{|i| i.name} %></td>
           <td><%= item.tag_list %></td>
           <td><%= item.user.name %></td>

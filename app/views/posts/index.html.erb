@@ -45,26 +45,28 @@
             <ul class="list cat-list">
               <% Category.all.each do |i| %>
               <li>
-                <%= link_to "<p>#{i.name}</p><p>#{i.posts.size > 0 ? "(#{i.posts.size})" : ""}</p>".html_safe, posts_path(filterrific: {with_category_id: i.id}), remote: true, class: "d-flex" %>
+                <%= link_to "<p>#{i.namee}</p><p>#{i.posts.size > 0 ? "(#{i.posts.size})" : ""}</p>".html_safe, posts_path(filterrific: {with_category_id: i.id}), remote: true, class: "d-flex" %>
               </li>
                 <% end %>
             </ul>
           </aside>
 
           <aside class="single_sidebar_widget popular_post_widget">
-            <h3 class="widget_title">Recent Post</h3>
-            <div class="media post_item">
-              <%= image_tag('kanox_images/post/post_2.png')%>
-              <div class="media-body">
-                <a href="single-blog.html">
-                  <h3>The Amazing Hubble</h3>
-                </a>
-                <p>02 Hours ago</p>
+            <h3 class="widget_title"><%= t :recent_posts %></h3>
+            <% @recent_posts.each do |item| %>
+              <div class="media post_item">
+                <% if item.photo.present? %><%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%> <% end %>
+                <div class="media-body">
+                  <a href="single-blog.html">
+                    <h3><%= item.titlee %></h3>
+                  </a>
+                  <p><%= item.created_at.strftime("%d-%b-%Y") %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
           </aside>
           <aside class="single_sidebar_widget tag_cloud_widget">
-            <h4 class="widget_title">Tag Clouds</h4>
+            <h4 class="widget_title"><%= t :tag_clouds %></h4>
             <ul class="list">
               <% ActsAsTaggableOn::Tag.most_used(10).each do |i|  %>
                 <% if Post.tagged_with(i.name).size > 0 %>
@@ -79,7 +81,7 @@
           </aside>
 
 
-          <aside class="single_sidebar_widget instagram_feeds">
+          <aside class="single_sidebar_widget instagram_feeds hide">
             <h4 class="widget_title">Instagram Feeds</h4>
             <ul class="instagram_row flex-wrap">
               <li>
@@ -91,7 +93,7 @@
           </aside>
 
 
-          <aside class="single_sidebar_widget newsletter_widget">
+          <aside class="single_sidebar_widget newsletter_widget hide">
             <h4 class="widget_title">Newsletter</h4>
 
             <form action="#">

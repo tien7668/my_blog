@@ -16,12 +16,11 @@
 
         <div class="blog_details">
           <a class="d-inline-block" href="<%= post_path(item) %>">
-            <h2><%= item.title %></h2>
+            <h2><%= item.titlee %></h2>
           </a>
-          <p><%= item.content.html_safe %></p>
+          <p><%= (sanitize item.contentt.gsub("\n", "<br />")[0..500], tags: %w(strong br)) %></p>
           <ul class="blog-info-link">
-            <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-            <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+            <li><a href="#"><i class="fas fa-tag"></i> <%= item.tag_list %></a></li>
           </ul>
         </div>
       </article>

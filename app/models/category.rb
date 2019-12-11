@@ -10,4 +10,9 @@ class Category < ApplicationRecord
   def self.options_for_select
     order('LOWER(name)').map { |e| [e.name, e.id] }
   end
+
+  def namee
+    temp = I18n.locale.to_s == "vn" ? self.name : (I18n.locale.to_s == "en" ? self.name_en : self.name_jp)
+    temp.blank? ? self.name : temp
+  end
 end

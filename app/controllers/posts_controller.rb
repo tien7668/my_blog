@@ -9,6 +9,7 @@ class PostsController < ApplicationController
         }
     ) or return
     @records = @filterrific.find.order("created_at desc").page params[:page]
+    @recent_posts = Post.order("created_at desc").limit(3)
     respond_to do |format|
       format.html
       format.js
