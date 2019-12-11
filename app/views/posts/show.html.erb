@@ -56,7 +56,7 @@
                 <% @prevPosts.each do |i| %>
                   <div class="thumb">
                     <a href="<%= post_path(i.id) %>">
-                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px")%> <% end %>
+                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid")%> <% end %>
                     </a>
                   </div>
                   <div class="arrow">
@@ -87,7 +87,7 @@
                   </div>
                   <div class="thumb">
                     <a href="<%= post_path(i.id) %>">
-                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid", :style => "width: 60px; height:60px" )%> <% end %>
+                      <% if i.photo.present? %><%= image_tag(i.photo.try(:url), class: "img-fluid")%> <% end %>
                     </a>
                   </div>
                 <% end %>

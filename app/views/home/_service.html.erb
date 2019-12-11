@@ -1,0 +1,66 @@
+<!-- service_part start-->
+<section class="our_latest_work section_padding">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="section_tittle text-center">
+          <p><%= t :feature_title %></p>
+          <h2><%= t :feature %></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="single_work">
+          <div class="row align-items-center">
+            <div class="offset-lg-1 col-lg-4 col-md-6">
+              <div class="single_work_demo">
+                <h3><%= t :feature_1_title %></h3>
+                <p><%= t :feature_1_content %></p>
+                <a href="<%= post_path(Post.find_by_static_id("service_1")) %>" class="btn_3"><%= t :learn_more %> <span class="flaticon-slim-right"></span> </a>
+              </div>
+            </div>
+            <div class="offset-lg-1 col-lg-6 col-md-6">
+              <div class="demo_img">
+                <%= image_tag('kanox_images/demo/demo_1.png')%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="single_work">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6">
+              <div class="demo_img">
+                <%= image_tag('kanox_images/demo/demo_2.png')%>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="single_work_demo">
+                <h3><%= t :feature_2_title %></h3>
+                <p><%= t :feature_2_content %></p>
+                <a href="<%= post_path(Post.find_by_static_id("service_2")) %>" class="btn_3"><%= t :learn_more %> <span class="flaticon-slim-right"></span> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="single_work">
+          <div class="row align-items-center">
+            <div class="offset-lg-1 col-lg-4 col-md-6">
+              <div class="single_work_demo">
+                <h3><%= t :feature_3_title %></h3>
+                <p><%= t :feature_3_content %></p>
+                <a href="<%= post_path(Post.find_by_static_id("service_3")) %>" class="btn_3"><%= t :learn_more %> <span class="flaticon-slim-right"></span> </a>
+              </div>
+            </div>
+            <div class="offset-lg-1 col-lg-6 col-md-6">
+              <div class="demo_img">
+                <%= image_tag('kanox_images/demo/demo_3.png')%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- service_part end-->

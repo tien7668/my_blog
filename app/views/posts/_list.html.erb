@@ -1,7 +1,7 @@
 <div id="filterrific_results">
   <div>
     <% records.each do |item| %>
-      <article class="blog_item">
+      <article class="blog_item" style="<%= !item.photo.present? ? "margin-top: 150px" : "" %>">
         <div class="blog_item_img">
           <% if item.photo.present? %><%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%> <% end %>
           <!--              <div class="upload-preview card-img rounded-0">-->
