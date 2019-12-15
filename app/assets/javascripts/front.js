@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require kanox_vendor
+//= require kanox
 //= require filterrific/filterrific-jquery
 

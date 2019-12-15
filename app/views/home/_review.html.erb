@@ -11,7 +11,7 @@
     </div>
     <div class="row align-items-center">
       <div class="col-lg-5">
-        <div class="intro_video_bg" style="<%= "background-image: url(#{asset_path("kanox_images/intro_bg.png")})"%>">
+        <div class="intro_video_bg hide" style="<%= "background-image: url(#{asset_path("kanox_images/intro_bg.png")})"%>">
           <div class="intro_video_iner text-center">
             <div class="intro_video_icon">
               <a id="play-video_1" class="video-play-button popup-youtube"
@@ -19,8 +19,14 @@
                 <span class="ti-control-play"></span>
               </a>
             </div>
-            <p>Watch intro video</p>
+            <p>Go to our FB page</p>
           </div>
+        </div>
+        <div class="owl-carousel owl-theme" id="sync4">
+          <%= image_tag('kanox_images/intro_bg.png', :class => "image")%>
+          <%= image_tag('kanox_images/intro_bg.png', :class => "image")%>
+          <%= image_tag('kanox_images/intro_bg.png', :class => "image")%>
+          <%= image_tag('kanox_images/intro_bg.png', :class => "image")%>
         </div>
       </div>
       <div class="col-md-8 col-lg-5">

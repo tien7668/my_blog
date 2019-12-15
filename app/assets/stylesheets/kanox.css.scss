@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Poppins:300,800|Roboto:300i,400,500,700");
+@import url("https://raw.githubusercontent.com/daneden/animate.css/master/animate.css");
 
 .kanox{
   .blog_item{
@@ -29,11 +30,79 @@
     height:60px;
     object-fit: cover
   }
-  //.demo_img img{
-  //  height: auto;
-  //  object-fit: cover;
-  //}
-  h2{
-    font-family: 'arial'!important;
+  .banner_slider{
+    height: 550px;
+    .custom-animation, .custom-animation2, .custom-animation3{
+      z-index: 11;
+    }
+    .owl-thumb-item{
+      height: 600px;
+    }
+    .sec_1{
+      padding: 0!important;
+      position: absolute;
+    }
+    .left_img{
+      position: absolute;
+      left: 0;
+      top: 180px;
+      z-index: 10;
+    }
+    .right_img{
+      position: absolute;
+      right: 0;
+      z-index: 10;
+      width: 200px;
+      height: 500px;
+      object-fit: fill;
+    }
+    .breadcrumb:after{
+      opacity: 0.55;
+    }
+    .breadcrumb_iner{
+      &.slogan{
+        width: 100%;
+        text-align: center!important;
+        h1{
+          font-size: 100px;
+          text-transform: uppercase;
+          font-family: 'arial'!important;
+        }
+      }
+      width: 50%;
+      float: left;
+      text-align: start!important;
+      h1,h2,h3,h4,h5,h6{
+        color: #fff;
+      }
+      h3{
+        font-size: 30px;
+      }
+      p{
+        line-height: 1.2;
+      }
+    }
   }
+  .main_menu.home_menu .main-menu-item ul li a{
+    color: white!important;
+  }
+
+  .review_part{
+    #sync4 .owl-nav{
+      text-align: center;
+      position: relative;
+      left: 0;
+    }
+    .review_text_item .owl-dots{
+      display: none;
+    }
+  }
+  .single_work .single_work_demo h3{
+    color: #ff1481;
+  }
+  //.banner_part:after, .banner_part:before {
+  //  z-index: 1000;
+  //}
+
+
 }
