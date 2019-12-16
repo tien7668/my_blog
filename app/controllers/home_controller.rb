@@ -152,7 +152,7 @@ class HomeController < ApplicationController
     initEpoch epoch, staker
     sum = @book[epoch][staker]["representativeFor"].inject(0) do |res, item|
       initEpoch epoch, item
-      res += @book[epoch][item]["stake"] if item != staker
+      res += @book[epoch][item]["stake"] - @book[epoch][item]["withdraw"] if item != staker
       res
     end
     puts "#{epoch} #{staker} #{sum}"
