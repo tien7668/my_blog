@@ -194,7 +194,7 @@ class HomeController < ApplicationController
     commands = params["commands"]
     commands.split("\n").each do |line|
       line = line.split(" ").map{|i| i.is_integer? ? i.to_i : i}
-      line.length == 2 ? init(*line) : send(line[0], *line.drop(1))
+      line.length == 2 ? init(*line) : send(line[0], *line.drop(1)) if line.length > 0
     end
     # raise @vt.inspect
     respond_to do |format|
