@@ -70,13 +70,18 @@ class HomeController < ApplicationController
     epoch = getEpoch block
     @latestEpoch = epoch if epoch > @latestEpoch
     initEpoch epoch, staker
+    valid = true
     if @book[epoch][staker]["currentStake"] >= amount
       @book[epoch][staker]["currentStake"] -= amount
     else
-      @book[epoch][staker]["withdraw"] += (amount - @book[epoch][staker]["currentStake"])
-      @book[epoch][staker]["currentStake"] = 0
+      if @book[epoch][staker]["withdraw"] + amount - @book[epoch][staker]["currentStake"] - @book[epoch][staker]["stake"] <= 0
+        @book[epoch][staker]["withdraw"] += (amount - @book[epoch][staker]["currentStake"])
+        @book[epoch][staker]["currentStake"] = 0
+      else
+        valid =false
+      end
     end
-    @vt += "withdraw #{block} #{amount} #{staker}\n"
+    @vt += "withdraw #{block} #{amount} #{staker} #{valid ? "" : " -> skip because withdraw amount too big"}\n"
   end
 
   def vote block, voteid, staker
