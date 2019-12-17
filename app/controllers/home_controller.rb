@@ -73,8 +73,8 @@ class HomeController < ApplicationController
     if @book[epoch][staker]["currentStake"] >= amount
       @book[epoch][staker]["currentStake"] -= amount
     else
-      @book[epoch][staker]["currentStake"] = 0
       @book[epoch][staker]["withdraw"] += (amount - @book[epoch][staker]["currentStake"])
+      @book[epoch][staker]["currentStake"] = 0
     end
     @vt += "withdraw #{block} #{amount} #{staker}\n"
   end
