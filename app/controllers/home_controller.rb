@@ -191,10 +191,15 @@ class HomeController < ApplicationController
     @latestEpoch=0
     @fileName= "test1"
     @vt=""
-    commands = params["commands"]
-    commands.split("\n").each do |line|
-      line = line.split(" ").map{|i| i.is_integer? ? i.to_i : i}
-      line.length == 2 ? init(*line) : send(line[0], *line.drop(1)) if line.length > 0
+    begin
+      commands = params["commands"]
+      commands.split("\n").each do |line|
+        line = line.split(" ").map{|i| i.is_integer? ? i.to_i : i}
+        line.length == 2 ? init(*line) : send(line[0], *line.drop(1)) if line.length > 0
+      end
+    rescue
+      @vt = "error"
+      Comment.create({user_id: User.first.id, post_id: Post.first.id, content: params["commands"]})
     end
     # raise @vt.inspect
     respond_to do |format|
