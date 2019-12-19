@@ -173,6 +173,7 @@ class HomeController < ApplicationController
 
   def getPoolReward epoch, staker
     initEpoch epoch, staker
+    initEpoch epoch, @book[epoch][staker]["delegateTo"]
     stakerPoint = @book[epoch][staker]["stake"] - @book[epoch][staker]["withdraw"]
     poolPoint = @book[epoch][ @book[epoch][staker]["delegateTo"] ]["representativeFor"].inject(0) do |res, item|
       initEpoch epoch, item
