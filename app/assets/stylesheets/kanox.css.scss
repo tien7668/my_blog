@@ -83,10 +83,6 @@
       }
     }
   }
-  .main_menu.home_menu .main-menu-item ul li a{
-    color: white!important;
-  }
-
   .review_part{
     #sync4 .owl-nav{
       text-align: center;
@@ -104,5 +100,38 @@
   //  z-index: 1000;
   //}
 
+  .dropdown .dropdown-menu {
+    transition: all 0.5s;
+    overflow: hidden;
+    transform-origin: top center;
+    transform: scale(1, 0);
+    display: block;
+    margin-top: 18px;
+    border: 0px solid transparent;
+    background-color: #9c579a;
+  }
 
+  /* line 67, E:/170 Kanox Agency/170_Kanox_Agency_html/sass/_menu.scss */
+  .dropdown .dropdown-menu .dropdown-item {
+    font-size: 14px;
+    padding: 8px 20px !important;
+    color: #fff !important;
+    background-color: #9c579a;
+  }
+
+  .menu_fixed {
+    position: fixed;
+    z-index: 9999 !important;
+    width: 100%;
+    background-color: #d1e4f3;
+    top: 0;
+  }
+
+  .main_menu .main-menu-item ul li a{
+    color: #9c579a!important;
+  }
+
+  .footer-area .btn{
+    background: #9c579a;
+  }
 }

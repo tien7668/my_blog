@@ -30,7 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 jp:
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    ckeditor:
+      page_title: "upload"
+      buttons:
+        upload: "upload"
   home: "ホーム"
+  about_us: "Về Chúng Tôi"
   services: "Dịch Vụ"
   slogan_1: "Giấc mơ nhật bản"
   slogan_2: "Trong tầm tay"
