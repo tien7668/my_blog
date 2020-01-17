@@ -12,6 +12,13 @@ class User < ApplicationRecord
   has_many :comments
   scope :ordered, ->() { order("users.created_at desc") }
 
+  scope :search, lambda { |q|
+    query = "%"+q.to_s.downcase+"%"
+    where("lower(cast (users.name as text)) LIKE ? or
+                lower(cast (users.email as text)) LIKE ? or
+                lower(cast (users.username as text)) LIKE ? ", query, query, query)
+  }
+
   def admin?
     self.role == "admin" || false
   end
