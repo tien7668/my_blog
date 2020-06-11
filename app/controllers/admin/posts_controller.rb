@@ -24,7 +24,7 @@ class Admin::PostsController < Admin::BaseController
     resource.content.gsub! '<pre>', '<p>'
     resource.content.gsub! '</pre>', '</p>'
     if resource.save
-      redirect_to admin_posts_path
+      # redirect_to admin_posts_path
     else
       render :new
     end
