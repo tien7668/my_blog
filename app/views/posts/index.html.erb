@@ -57,7 +57,7 @@
               <div class="media post_item">
                 <% if item.photo.present? %><%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%> <% end %>
                 <div class="media-body">
-                  <a href="single-blog.html">
+                  <a href="<%= post_path(item.id) %>">
                     <h3><%= item.titlee %></h3>
                   </a>
                   <p><%= item.created_at.strftime("%d-%b-%Y") %></p>
