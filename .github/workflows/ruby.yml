@@ -1,0 +1,28 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Ruby
+
+on:
+  push:
+    branches: [ nmd_cms ]
+  pull_request:
+    branches: [  ]
+
+jobs:
+  nmd_job:
+    name: deploy to nmd_cms
+    runs-on: ubuntu-18.04
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Build & Push docker image
+        uses: docker/build-push-action@v1
+        with: 
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: vutien/nmd_cms
+          tags: develop
