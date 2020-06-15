@@ -11,9 +11,11 @@ default: &default
 
 development:
   <<: *default
-  database: nmd_cms_dev
-  username: postgres
-  password: 1
+  database: <%= ENV.fetch("db_name") { "nmd_cms_dev" } %>
+  username: <%= ENV.fetch("db_username") { "postgres" } %>
+  password: <%= ENV.fetch("db_postgres") { "1" } %>
+  host: <%= ENV.fetch("db_host") { "localhost" } %>
+  port: <%= ENV.fetch("db_port") { "5432" } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -9,9 +9,7 @@ set :repo_url, "git@github.com:tien7668/my_blog.git"
 # elsif fetch(:stage) == :production
 #   set :branch, :master
 # end
-set :branch, :nmd_cms
 
-set :deploy_to, '/home/deploy/nmd_cms'
 set :linked_files, %w[config/database.yml config/application.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads]
 
