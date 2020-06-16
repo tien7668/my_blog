@@ -9,12 +9,12 @@ development:
 staging:
   admin_name: "super_admin@gmail.com"
   admin_password: "123456"
-  db_name: "nmd_cms_dev"
-  db_username: "postgres"
-  db_postgres: "1"
+  db_name: "nmd_cms"
+  db_username: "nmd_cms"
+  db_postgres: "nmd_cms"
   db_host: "localhost"
   db_port: "5432"
-  SECRET_KEY_BASE: 7d763f0def62d2f4c11250836a97cce6f11b85c9d889425b4d1e02957725333ef106427f2451b4484a24631a09818177f29dc22465550083b322c6886977c488
+  SECRET_KEY_BASE: 55ed17e2326e5604fdb39ab053b8f0bd2be8e89592984dfc205a133506fe61798a58381494c1f6398b9a8c7b53224b1e138bb89a273d6f4db6a62f4a2500ec9c
 production:
   admin_name: "super_admin@gmail.com"
   admin_password: "123456"

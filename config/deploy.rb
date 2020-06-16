@@ -9,13 +9,13 @@ set :repo_url, "git@github.com:tien7668/my_blog.git"
 # elsif fetch(:stage) == :production
 #   set :branch, :master
 # end
-
+set :branch, :nmd_cms
 set :linked_files, %w[config/database.yml config/application.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads]
 
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.5.1'
+set :rvm_ruby_version, '2.7.1'
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
@@ -31,6 +31,28 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
+
+
+namespace :deploy do
+
+  task :copy_config do
+    on release_roles :app do |role|
+      fetch(:linked_files).each do |linked_file|
+        user = role.user + "@" if role.user
+        hostname = role.hostname
+        linked_files(shared_path).each do |file|
+          run_locally do
+            execute :rsync, "config/#{file.to_s.gsub(/.*\/(.*)$/,"\\1")}", "#{user}#{hostname}:#{file.to_s.gsub(/(.*)\/[^\/]*$/, "\\1")}/"
+          end
+        end
+      end
+    end
+  end
+
+end
+if fetch(:stage) == :staging
+  before "deploy:check:linked_files", "deploy:copy_config"
+end
 
 # sidekiq -C config/myapp_sidekiq.yml
 # set :faye_pid, "#{shared_path}/tmp/pids/faye.pid"
