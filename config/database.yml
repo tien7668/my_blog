@@ -20,11 +20,11 @@ development:
 
 staging:
   <<: *default
-  database: <%= ENV.fetch("db_name") %>
-  username: <%= ENV.fetch("db_username") %>
-  password: <%= ENV.fetch("db_postgres") %>
-  host: <%= ENV.fetch("db_host") %>
-  port: <%= ENV.fetch("db_port") %>
+  database: <%= ENV.fetch("db_name") { "nmd_cms" } %>
+  username: <%= ENV.fetch("db_username") { "nmd_cms" } %>
+  password: <%= ENV.fetch("db_postgres") { "nmd_cms" } %>
+  host: <%= ENV.fetch("db_host") { "localhost" } %>
+  port: <%= ENV.fetch("db_port") { "5432" } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
