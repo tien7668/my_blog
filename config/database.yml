@@ -9,7 +9,7 @@ default: &default
   encoding: unicode
   pool: 5
 
-development:
+development: &development
   <<: *default
   database: <%= ENV.fetch("db_name") { "nmd_cms_dev" } %>
   username: <%= ENV.fetch("db_username") { "postgres" } %>
