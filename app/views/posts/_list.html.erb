@@ -7,9 +7,6 @@
           <% if item.photo.present? %>
               <%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%>
           <% end %>
-          <!--              <div class="upload-preview card-img rounded-0">-->
-          <!--                <div class="image-preview" style="<%#= item.photo.present? ? "background-image: url('"+item.photo.try(:url)+"');background-size: contain;background-position: center center;" : "" %>"></div>-->
-          <!--              </div>-->
           <a href="#" class="blog_item_date">
             <h3><%= item.created_at.strftime("%d") %></h3>
             <p><%= item.created_at.strftime("%b") %></p>
