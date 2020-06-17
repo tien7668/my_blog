@@ -3,7 +3,10 @@
     <% records.each do |item| %>
       <article class="blog_item" style="<%= !item.photo.present? ? "margin-top: 150px" : "" %>">
         <div class="blog_item_img">
-          <% if item.photo.present? %><%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%> <% end %>
+          <% if item.photo.present? %>
+              <hidden> <%= item.photo.try(:url) %> </hidden>
+              <%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%>
+          <% end %>
           <!--              <div class="upload-preview card-img rounded-0">-->
           <!--                <div class="image-preview" style="<%#= item.photo.present? ? "background-image: url('"+item.photo.try(:url)+"');background-size: contain;background-position: center center;" : "" %>"></div>-->
           <!--              </div>-->
