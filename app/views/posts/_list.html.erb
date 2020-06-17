@@ -3,10 +3,10 @@
     <% records.each do |item| %>
       <article class="blog_item" style="<%= !item.photo.present? ? "margin-top: 150px" : "" %>">
         <div class="blog_item_img">
-          <%= item.title %> <%= item.photo %>
           <% if item.photo.present? %>
               <%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%>
           <% end %>
+
           <a href="#" class="blog_item_date">
             <h3><%= item.created_at.strftime("%d") %></h3>
             <p><%= item.created_at.strftime("%b") %></p>
