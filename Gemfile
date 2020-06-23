@@ -52,6 +52,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
+  gem 'capistrano-chruby'
   gem 'capistrano-sidekiq',   require: false
   gem 'capistrano-rails-console', require: false
 
@@ -71,7 +72,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '>= 0.18', '< 2.0', :source => "https://rubygems.org/"
 gem 'figaro'
 gem 'devise'
 gem 'friendly_id'
