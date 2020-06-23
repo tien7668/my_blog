@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree ./ckeditor
 //= require ckeditor/init
+//= require_tree ./ckeditor
 //= require_tree ./libs
 //= require gentelella_vendor
 //= require filterrific/filterrific-jquery

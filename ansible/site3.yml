@@ -1,0 +1,49 @@
+---
+- hosts: cms
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Add deploy user
+      user:
+        name: deploy
+        shell: /bin/bash
+        group: admin
+#        openssl passwd -salt SomeSalt -1 deploy
+        password: $1$SomeSalt$RIIi8geHApvCaCMRjlFZv.
+    - name: Add SSH key to server for deploy user
+      authorized_key:
+        user: deploy
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/PDTfafiC/Cfn3vaE4JgEYyCddWCTzNMBf04zxb+JoRlQCBZZZv4ciTc1JQQwf4qlpSNoIXv4cjpE1VUEwmeNsX2Lk9EGDWUPwRyWLFP45adrAngnPnyEg/36nWL2FQ20v4B8QKBaoLjBLAbywVzXizNvtTDJL9A2Er7/mzokJlybpsjEojM6sanYEfHIos8fzX56n0vFhrvfIqGiH6K+T9vXohzsD0EUvt4YLeOuIPoZJ4TdcrguIOkMEJXiGr5MVJSSvHKE4mHZOgh4e7y54G4BLaWv60QLdH2YTe7BHn0meBKFx2jK8CtufxDDRyevmClXOBDfa2NMIeNvEUC7 daikadicode@Mac-Cafes-MacBook-Pro.local"
+    - name: Install Ruby dependencies
+      apt:
+        name: "{{ item }}"
+      with_items:
+        - gcc
+        - autoconf
+        - bison
+        - build-essential
+        - libssl-dev
+        - libyaml-dev
+        - libreadline6-dev
+        - zlib1g-dev
+        - libncurses5-dev
+        - libffi-dev
+        - libgdbm3
+        - libgdbm-dev
+        - sqlite3
+        - libsqlite3-dev
+        - nodejs
+- hosts: cms
+  remote_user: root
+  become: yes
+  roles:
+    - { role: rvm.ruby,
+        tags: ruby,
+        rvm1_rubies: ['ruby-2.7.1'],
+        rvm1_install_flags: '--auto-dotfiles  --user-install',
+        rvm1_user: 'deploy'
+      }
