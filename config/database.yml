@@ -17,6 +17,8 @@ development: &development
   host: <%= ENV.fetch("db_host") { "localhost" } %>
   port: <%= ENV.fetch("db_port") { "5432" } %>
 
+vagrant:
+  <<: *development
 staging:
   <<: *development
 
