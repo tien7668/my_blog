@@ -19,6 +19,8 @@ development: &development
 
 vagrant:
   <<: *development
+gg:
+  <<: *development
 staging:
   <<: *development
 
