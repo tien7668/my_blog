@@ -1,0 +1,69 @@
+<nav class="pagination blog-pagination justify-content-center d-flex" role="navigation" aria-label="pager">
+    <input type="hidden" id="current_page" value="<%= current_page %>" />
+    <ul class="pagination">
+        <li class="page-item start <%= current_page == 1 ? "hide" : "" %>">
+            <a class="page-link"><i class="fas fa-angle-left"></i><i class="fas fa-angle-left"></i></a>
+        </li>
+        <li class="page-item previous  <%= current_page == 1 ? "hide" : "" %>">
+            <a class="page-link"><i class="fas fa-angle-left"></i></a>
+        </li>
+        <% pages.each do |page| %> 
+        <li class="page-item page-item-number <%= page == current_page ? "active" : "" %>">
+            <a class="page-link" href="javascript:void(0)"><%= page %></a>
+        </li>
+        <% end %>
+        <li class="page-item next <%= current_page == pages[pages.length-1] ? "hide" : "" %>">
+        <a class="page-link"><i class="fas fa-angle-right"></i></a>
+        </li>
+        <li class="page-item end <%= current_page == pages[pages.length-1] ? "hide" : "" %>">
+        <a class="page-link"><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i></a>
+        </li>
+    </ul>
+</nav>
+
+
+<% content_for :more_js do  %>
+    <script>
+      $(function() {
+            $('body').on('click', '.page-item.page-item-number',  function(){
+              const page = $(this).find('a').text()
+              console.log('---', page)
+              $.ajax({
+                method: 'POST',
+                dataType: 'script',
+                beforeSend: function(xhr) {
+                  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                url: "<%= ajax_get_posts_path %>",
+                data: { page: page }
+              })
+            })
+
+            $('body').on('click', '.page-item.previous',  function(){
+              const page = $(this).find('a').text()
+              console.log('---', page)
+              $.ajax({
+                method: 'POST',
+                dataType: 'script',
+                beforeSend: function(xhr) {
+                  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                url: "<%= ajax_get_posts_path %>",
+                data: { page: +$('#current_page').val() -1 }
+              })
+            })
+            $('body').on('click', '.page-item.next',  function(){
+              const page = $(this).find('a').text()
+              $.ajax({
+                method: 'POST',
+                dataType: 'script',
+                beforeSend: function(xhr) {
+                  xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                url: "<%= ajax_get_posts_path %>",
+                data: { page: +$('#current_page').val() + 1 }
+              })
+            })
+      });
+    </script>
+  <% end %>

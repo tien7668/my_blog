@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post :ajax_delete_multiple_post, to: 'posts#ajax_delete_multiple_post'
   end
   resources :posts
+  post :ajax_get_posts, to: 'home#ajax_get_posts' 
   post 'comments/save_comment'
   put 'comments/save_comment'
 

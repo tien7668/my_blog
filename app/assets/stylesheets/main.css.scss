@@ -332,3 +332,19 @@ span.send, span.save, span.delete{
 }
 
 @import "kanox";
+
+.kanox .home{
+  .blog_item {
+    // height: 100px;
+    .blog_item_img .card-img {
+      height: 100px;
+    }
+
+    .blog_details{
+      padding: 30px 30px 10px 35px;
+    }
+  }
+  .pagination>nav{
+    width: 100%;
+  }
+}
