@@ -342,6 +342,8 @@ span.send, span.save, span.delete{
 
     .blog_details{
       padding: 30px 30px 10px 35px;
+      max-height: 115px;
+      overflow: hidden;
     }
   }
   .pagination>nav{

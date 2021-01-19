@@ -1,23 +1,23 @@
 <% records.each do |item| %>
     <div class="col-lg-4 col-md-6">
-      <article class="blog_item">
-        <div class="blog_item_img">
-          <% if item.photo.present? %>
-              <%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%>
-          <% else %>
-              <%= image_tag("https://increasify.com.au/wp-content/uploads/2016/08/default-image.png", :class => 'card-img rounded-0' )%>
-          <% end %>
-          <a href="#" class="blog_item_date">
-            <p><%= item.created_at.strftime("%d") %> / <%= item.created_at.strftime("%b") %> / <%= item.created_at.strftime("%Y") %></p>
-          </a>
-        </div>
+            <article class="blog_item">
+              <div class="blog_item_img">
+                <% if item.photo.present? %>
+                    <%= image_tag(item.photo.try(:url), :class => 'card-img rounded-0' )%>
+                <% else %>
+                    <%= image_tag("https://increasify.com.au/wp-content/uploads/2016/08/default-image.png", :class => 'card-img rounded-0' )%>
+                <% end %>
+                <a href="#" class="blog_item_date">
+                  <p><%= item.created_at.strftime("%d") %> / <%= item.created_at.strftime("%b") %> / <%= item.created_at.strftime("%Y") %></p>
+                </a>
+              </div>
 
-        <div class="blog_details">
-          <a class="d-inline-block" href="<%= post_path(item) %>">
-            <h2><%= item.titlee %></h2>
-          </a>
-          <p><%= (sanitize item.contentt.gsub("\n", " ...<br />")[0..100], tags: %w(strong br)) %></p>
-        </div>
-      </article>
+              <div class="blog_details">
+                <a class="d-inline-block" href="<%= post_path(item) %>">
+                  <h5><%= item.titlee %></h5>
+                </a>
+                <p><%= (sanitize item.contentt.gsub("\n", "<br />")[0..100], tags: %w(strong br)) %></p>
+              </div>
+            </article>
     </div>
   <% end %>
