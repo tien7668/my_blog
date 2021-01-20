@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    per_page = 6
+    per_page = 4
     @records = Post.order("created_at desc").limit(per_page)
     @pages_count = Post.all.size / per_page + (Post.all.size % per_page == 0 ? 0 : 1)
     @current_page = 1
@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def ajax_get_posts
-    per_page = 6
+    per_page = 4
     @page = params["page"].to_i
     @posts = Post.order("created_at desc").limit(per_page).offset((@page-1) * per_page)
     @pages_count = Post.all.size / per_page + (Post.all.size % per_page == 0 ? 0 : 1)

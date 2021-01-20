@@ -65,18 +65,32 @@
             </div>
           </div>
         <% end %>
-        <div class="single_work">
-                  <div id="filterrific_results">
-                    <div class="home">
-                      <div class="row list_posts">
-                        <%= render partial: "list_posts_template" , locals: {records: @records }%>
-                      </div>
-                      <div class="row pagination">
-                        <%= render partial: "list_posts_pagination_template" , locals: {pages: @pages, current_page: 1, last_page: @pages_count }%>
-                      </div>
-                    </div>
-                  </div>
+
+        
+    </div>
+  </div>
+</section>
+
+<section class="section_padding">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="section_tittle text-center">
+          <p><%= t :feature_title %></p>
+          <h2><%= t :recent_posts %></h2>
         </div>
+      </div>
+    </div>
+
+    <div id="filterrific_results">
+      <div class="home">
+        <div class="row list_posts">
+          <%= render partial: "list_posts_template" , locals: {records: @records }%>
+        </div>
+        <div class="row pagination">
+          <%= render partial: "list_posts_pagination_template" , locals: {pages: @pages, current_page: 1, last_page: @pages_count }%>
+        </div>
+      </div>
     </div>
   </div>
 </section>
