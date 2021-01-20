@@ -336,8 +336,15 @@ span.send, span.save, span.delete{
 .kanox .home{
   .blog_item {
     // height: 100px;
-    .blog_item_img .card-img {
-      height: 100px;
+    .blog_item_img {
+      .card-img {
+        height: 100px;
+      } 
+
+      .blog_item_date {
+        padding: 0 10px;
+        bottom: -10px;
+      } 
     }
 
     .blog_details{
@@ -346,7 +353,28 @@ span.send, span.save, span.delete{
       overflow: hidden;
     }
   }
-  .pagination>nav{
-    width: 100%;
+  .pagination{
+    margin-top: 0px;
+    >nav{
+      width: 100%;
+    }
+  }
+  
+}
+
+.qualification {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+
+  p{
+    text-transform: uppercase;
+    &.hightlight{
+      color: #ef8200!important;
+    }
+  }
+  img {
+    width: 50px!important;
+    height: 50px!important;
   }
 }
