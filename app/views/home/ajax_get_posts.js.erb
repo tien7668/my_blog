@@ -1,2 +1,2 @@
 $('.home .list_posts').html('<%= j render partial: './home/list_posts_template' , locals: {records: @posts }%>');
-$('.home .pagination').html('<%= j render partial: './home/list_posts_pagination_template' , locals: {pages: @pages, current_page: @page }%>');
+$('.home .pagination').html('<%= j render partial: './home/list_posts_pagination_template' , locals: {pages: @pages, current_page: @page, last_page: @pages_count }%>');

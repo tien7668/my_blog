@@ -72,7 +72,7 @@
                         <%= render partial: "list_posts_template" , locals: {records: @records }%>
                       </div>
                       <div class="row pagination">
-                        <%= render partial: "list_posts_pagination_template" , locals: {pages: @pages, current_page: 1 }%>
+                        <%= render partial: "list_posts_pagination_template" , locals: {pages: @pages, current_page: 1, last_page: @pages_count }%>
                       </div>
                     </div>
                   </div>
